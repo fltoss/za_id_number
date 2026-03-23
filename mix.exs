@@ -34,7 +34,7 @@ defmodule ZaIdNumber.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Wilhelm H Kirschbaum"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/floatpays/za_id_number"}
+      links: %{"GitHub" => "https://github.com/fltoss/za_id_number"}
     ]
   end
 
