@@ -14,16 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        otp: [25.3]
-        elixir: [1.14.x]
+        otp: ["27"]
+        elixir: ["1.18"]
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - uses: googleapis/release-please-action@v4
         id: release
         with:
           release-type: elixir
-          package-name: za_national_id
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
 
       - uses: erlef/setup-beam@v1
@@ -32,7 +31,7 @@ jobs:
           elixir-version: ${{matrix.elixir}}
         if: ${{ steps.release.outputs.release_created }}
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v6
         id: cache
         if: ${{ steps.release.outputs.release_created }}
         with:

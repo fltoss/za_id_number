@@ -18,22 +18,29 @@ jobs:
   test:
     strategy:
       matrix:
-        elixir: [1.14.4, 1.15.5, 1.16.3]
-        otp: [24.2, 25.2, 26]
+        include:
+          - elixir: "1.15"
+            otp: "25"
+          - elixir: "1.16"
+            otp: "26"
+          - elixir: "1.18"
+            otp: "27"
+          - elixir: "1.20"
+            otp: "28"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v6
     - name: Set up Elixir
       uses: erlef/setup-beam@v1
       with:
         elixir-version: ${{ matrix.elixir }}
         otp-version: ${{ matrix.otp }}
     - name: Restore dependencies cache
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: deps
-        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-        restore-keys: ${{ runner.os }}-mix-
+        key: ${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+        restore-keys: ${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}-
     - name: Install dependencies
       run: mix deps.get
     - name: Run tests
