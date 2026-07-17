@@ -5,6 +5,7 @@ defmodule ZaIdNumber.Luhn do
   Reference: https://en.wikipedia.org/wiki/Luhn_algorithm
   """
 
+  @spec valid?(binary()) :: boolean()
   def valid?(number) when is_binary(number) do
     checksum =
       number

@@ -1,6 +1,4 @@
 defmodule ZaIdNumber.LuhnTest do
-  use ExUnit.Case
-
   use ExUnit.Case, async: true
 
   alias ZaIdNumber.Luhn

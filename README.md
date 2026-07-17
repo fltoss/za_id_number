@@ -2,6 +2,8 @@
 
 Validates South African ID Numbers according to the official format and returns parsed information including date of birth, gender, age, and citizenship status.
 
+Requires Elixir 1.16 or later. No runtime dependencies.
+
 ## Installation
 
 ```elixir
@@ -33,13 +35,14 @@ iex> ZaIdNumber.validate("12345")
 iex> ZaIdNumber.validate("8001015009087")
 {:ok, %{
    gender: :male,
-   age: 45,
+   age: 46,
    date_of_birth: ~D[1980-01-01],
    citizen_status: :born_citizen
   }
 }
 
-# You can optionally pass a reference date for testing
+# You can optionally pass a reference date, used for the century
+# pivot and age calculation (defaults to Date.utc_today/0)
 iex> ZaIdNumber.validate("8001015009087", today: ~D[2024-06-15])
 {:ok, %{
    gender: :male,
@@ -48,6 +51,10 @@ iex> ZaIdNumber.validate("8001015009087", today: ~D[2024-06-15])
    citizen_status: :born_citizen
   }
 }
+
+# For a simple boolean check
+iex> ZaIdNumber.valid?("8001015009087")
+true
 ```
 
 ## Error Messages
@@ -70,6 +77,7 @@ mix test
 For code quality checks:
 
 ```bash
+mix format --check-formatted
 mix credo --strict
 mix dialyzer
 ```
