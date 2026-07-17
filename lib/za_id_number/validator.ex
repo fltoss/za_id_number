@@ -96,8 +96,10 @@ defmodule ZaIdNumber.Validator do
   end
 
   defp calculate_age(today, date) do
-    diff = today.year - date.year
+    age = today.year - date.year
 
-    if Date.compare(today, date) == :lt, do: diff - 1, else: diff
+    if {today.month, today.day} < {date.month, date.day},
+      do: age - 1,
+      else: age
   end
 end

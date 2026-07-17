@@ -27,7 +27,7 @@ defmodule ZaIdNumber.ValidatorTest do
       String.split(line, ",") |> Enum.map(&String.trim/1)
 
     unless id_number == "id_number" do
-      test "test id number #{id_number}" do
+      test "validates #{id_number} on #{today}" do
         date = Date.from_iso8601!(unquote(today))
         result = Validator.validate(unquote(id_number), today: date)
 

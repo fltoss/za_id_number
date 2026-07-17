@@ -1,2 +1,9 @@
 today, id_number, gender, age, date_of_birth, citizen_status, error
 2022-01-15,12334,,,,,Invalid ID Number format
+2025-06-15,8001015009087,male,45,1980-01-01,born_citizen,
+2026-07-17,8012315009081,male,45,1980-12-31,born_citizen,
+2026-12-31,8012315009081,male,46,1980-12-31,born_citizen,
+2025-06-15,8001010001089,female,45,1980-01-01,born_citizen,
+2025-06-15,8002305009084,,,,,Invalid ID Number date
+2025-06-15,8001015009086,,,,,Invalid ID Number checksum
+2025-06-15,8001015009384,,,,,Invalid ID Number C code
