@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/fltoss/za_id_number/compare/v1.1.0...v1.2.0) (2026-07-17)
+
+
+### Features
+
+* modernize package ([19f5be5](https://github.com/fltoss/za_id_number/commit/19f5be5b4ec20f5c09979fe946d4a496d339275d))
+
+
+### Bug Fixes
+
+* correct age calculation when birthday has not yet occurred this year ([1f8928d](https://github.com/fltoss/za_id_number/commit/1f8928d78c7d03d1aefbea224d7895d46a746762))
+* use File.stream!/1 for Elixir 1.15 compatibility ([9fc5167](https://github.com/fltoss/za_id_number/commit/9fc5167464101f35fe840e8f0df07495f1fbf435))
+
 ## [1.1.1] (2025-11-10)
 
 ### Bug Fixes
