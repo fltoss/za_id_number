@@ -22,7 +22,7 @@ defmodule ZaIdNumber.ValidatorTest do
     assert Validator.validate("8401") == {:error, "Invalid ID Number format"}
   end
 
-  for line <- File.stream!(ids_path, :line) do
+  for line <- File.stream!(ids_path) do
     [today, id_number, gender, age, date_of_birth, citizen_status, error] =
       String.split(line, ",") |> Enum.map(&String.trim/1)
 
